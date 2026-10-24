@@ -204,7 +204,7 @@ pub enum InvalidThisContext {
 }
 
 /// Class and object members that have their own `this`.
-const THIS_BINDING_MEMBERS: SyntaxKindSet<JsLanguage> = JsMethodClassMember::KIND_SET
+pub(crate) const THIS_BINDING_MEMBERS: SyntaxKindSet<JsLanguage> = JsMethodClassMember::KIND_SET
     .union(JsConstructorClassMember::KIND_SET)
     .union(JsGetterClassMember::KIND_SET)
     .union(JsSetterClassMember::KIND_SET)
@@ -215,7 +215,7 @@ const THIS_BINDING_MEMBERS: SyntaxKindSet<JsLanguage> = JsMethodClassMember::KIN
     .union(JsSetterObjectMember::KIND_SET);
 
 /// Children of [THIS_BINDING_MEMBERS] that are evaluated with the member's `this`.
-const MEMBER_EXECUTION_CONTEXTS: SyntaxKindSet<JsLanguage> = JsFunctionBody::KIND_SET
+pub(crate) const MEMBER_EXECUTION_CONTEXTS: SyntaxKindSet<JsLanguage> = JsFunctionBody::KIND_SET
     .union(JsParameters::KIND_SET)
     .union(JsConstructorParameters::KIND_SET)
     .union(JsFormalParameter::KIND_SET)

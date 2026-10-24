@@ -3358,6 +3358,11 @@ export interface Nursery {
 	 */
 	noVueShadowNativeEvents?: NoVueShadowNativeEventsConfiguration;
 	/**
+	 * Disallow this in the beforeRouteEnter navigation guard of a Vue component.
+	 * See https://biomejs.dev/linter/rules/no-vue-this-in-before-route-enter
+	 */
+	noVueThisInBeforeRouteEnter?: NoVueThisInBeforeRouteEnterConfiguration;
+	/**
 	 * Disallow custom Vue directives that are not declared.
 	 * See https://biomejs.dev/linter/rules/no-vue-undeclared-directives
 	 */
@@ -6114,6 +6119,9 @@ export type NoVueRootVIfConfiguration =
 export type NoVueShadowNativeEventsConfiguration =
 	| RulePlainConfiguration
 	| RuleWithNoVueShadowNativeEventsOptions;
+export type NoVueThisInBeforeRouteEnterConfiguration =
+	| RulePlainConfiguration
+	| RuleWithNoVueThisInBeforeRouteEnterOptions;
 export type NoVueUndeclaredDirectivesConfiguration =
 	| RulePlainConfiguration
 	| RuleWithNoVueUndeclaredDirectivesOptions;
@@ -8813,6 +8821,10 @@ export interface RuleWithNoVueShadowNativeEventsOptions {
 	level: RulePlainConfiguration;
 	options?: NoVueShadowNativeEventsOptions;
 }
+export interface RuleWithNoVueThisInBeforeRouteEnterOptions {
+	level: RulePlainConfiguration;
+	options?: NoVueThisInBeforeRouteEnterOptions;
+}
 export interface RuleWithNoVueUndeclaredDirectivesOptions {
 	level: RulePlainConfiguration;
 	options?: NoVueUndeclaredDirectivesOptions;
@@ -11355,6 +11367,7 @@ export type NoVueLifecycleAfterAwaitOptions = {};
 export type NoVueRequiredPropWithDefaultOptions = {};
 export type NoVueRootVIfOptions = {};
 export type NoVueShadowNativeEventsOptions = {};
+export type NoVueThisInBeforeRouteEnterOptions = {};
 export interface NoVueUndeclaredDirectivesOptions {
 	/**
 	 * Names of directives registered globally with `app.directive(...)`,
@@ -13026,14 +13039,14 @@ export type Category =
 	| "lint/nursery/noBooleanSortComparator"
 	| "lint/nursery/noBunModules"
 	| "lint/nursery/noColorInvalidHex"
-	| "lint/nursery/noDanglingUnderscore"
-	| "lint/nursery/noDuplicateMapKeys"
 	| "lint/nursery/noComponentHookFactories"
 	| "lint/nursery/noConditionalExpect"
+	| "lint/nursery/noDanglingUnderscore"
 	| "lint/nursery/noDoubleComparison"
 	| "lint/nursery/noDrizzleDeleteWithoutWhere"
 	| "lint/nursery/noDrizzleUpdateWithoutWhere"
 	| "lint/nursery/noDuplicateFieldDefinitionNames"
+	| "lint/nursery/noDuplicateMapKeys"
 	| "lint/nursery/noDuplicateSelectors"
 	| "lint/nursery/noEagerArrayMethodsInLoops"
 	| "lint/nursery/noEmptyObjectKeys"
@@ -13129,6 +13142,7 @@ export type Category =
 	| "lint/nursery/noVueRequiredPropWithDefault"
 	| "lint/nursery/noVueRootVIf"
 	| "lint/nursery/noVueShadowNativeEvents"
+	| "lint/nursery/noVueThisInBeforeRouteEnter"
 	| "lint/nursery/noVueUndeclaredDirectives"
 	| "lint/nursery/noVueUnusedEmitDeclarations"
 	| "lint/nursery/noVueVHtml"
@@ -13219,9 +13233,9 @@ export type Category =
 	| "lint/nursery/useVueNextTickPromise"
 	| "lint/nursery/useVueToggleInsideTransition"
 	| "lint/nursery/useVueTypedRef"
+	| "lint/nursery/useVueVOnExact"
 	| "lint/nursery/useVueValidVFor"
 	| "lint/nursery/useVueValidVModel"
-	| "lint/nursery/useVueVOnExact"
 	| "lint/nursery/useWhileLoopCondition"
 	| "lint/performance/noAccumulatingSpread"
 	| "lint/performance/noAwaitInLoops"
