@@ -1836,6 +1836,11 @@ pub fn config_side_rule_options_types() -> Vec<(&'static str, &'static str, Type
         >(),
     ));
     result.push((
+        "nursery",
+        "noVueLoneTemplate",
+        TypeId::of::<biome_rule_options::no_vue_lone_template::NoVueLoneTemplateOptions>(),
+    ));
+    result.push((
         "style",
         "noVueOptionsApi",
         TypeId::of::<biome_rule_options::no_vue_options_api::NoVueOptionsApiOptions>(),
