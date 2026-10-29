@@ -1,5 +1,17 @@
 # @biomejs/biome
 
+## 2.6.5
+
+### Patch Changes
+
+- [#12675](https://github.com/biomejs/biome/pull/12675) [`2a16d59`](https://github.com/biomejs/biome/commit/2a16d59c3ea4e4875b2b3dd9c79bba4055442fcc) Thanks [@dyc3](https://github.com/dyc3)! - Added the new nursery rule [`useVueConsistentDefineEmitsDeclaration`](https://biomejs.dev/linter/rules/use-vue-consistent-define-emits-declaration/), which enforces one declaration style for `defineEmits` in `<script setup lang="ts">`. By default, events must be declared with a type. The `style` option can instead require each event to be a property of that type, such as `change: [id: number]`, or require an argument, such as `defineEmits(["change"])`.
+  
+  ```vue
+  <script setup lang="ts">
+  const emit = defineEmits(["change", "update"]);
+  </script>
+  ```
+
 ## 2.6.4
 
 ### Patch Changes
